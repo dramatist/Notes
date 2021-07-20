@@ -8,8 +8,6 @@
 
 @Autowired、@Inject、@Value、@Resource不能被自定义BeanPostProcessor或BeanFactoryPostProcessor处理
 
-@PostConstruct  @PreDestory
-
 @Qualifier
 
 @Component
@@ -21,6 +19,10 @@
 @Configuration中的声明了@Bean的方法不能为private或final（Configuration类会被cglib增强）
 
 @Bean定义的bean中如果有shutdown或close方法，会自动配置为destruction回调
+
+@Profile @Conditional
+
+@Import  @ImportResource
 
 **CustomAutowireConfigurer **    **AutowireCandidateResolver**
 

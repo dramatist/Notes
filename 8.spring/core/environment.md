@@ -2,8 +2,6 @@
 
 #### Profile
 
-一组bean definitions，由Environment决定哪些profile是active的
-
 @Profile("production | test")   @Profile("production & test")    还可使用感叹号，表示否
 
 & 与 ｜ 混用时必须有括号
@@ -37,3 +35,6 @@ API
 - PropertySources
 
 未提供Yaml直接支持，可使用YamlProcessor
+
+* YamlMapFactoryBean
+* YamlPropertiesFactoryBean

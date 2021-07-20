@@ -80,6 +80,8 @@ BeanFactory Bean是延迟加载，ApplicationContext会将单例Bean提前初始
 
 BeanPostProcessor和BeanFactoryPostProcessor，BeanFactory需要手动注册，ApplicationContext则是自动注册
 
+getBean线程安全，在操作中会加互斥锁
+
 ### 模块
 
 ioc
