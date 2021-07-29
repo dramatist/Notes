@@ -24,6 +24,8 @@
 
 @Import  @ImportResource
 
+@Import使用FullyQualifiedAnnotationBeanNameGenerator生成BeanName
+
 **CustomAutowireConfigurer **    **AutowireCandidateResolver**
 
 
@@ -35,4 +37,4 @@ AnnotatedBeanDefinitionReader
 * 条件评估@Conditional：ConditionEvaluator
 * Bean范围解析：ScopeMetadataResolver
 * BeanDefinition解析：内部
-* BeanDefinition处理：AnnotationConfigUtils.processCommonDefinitionAnnotations
+* BeanDefinition处理：AnnotationConfigUtils#processCommonDefinitionAnnotations
