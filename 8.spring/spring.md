@@ -61,7 +61,7 @@
 * 生命周期管理
     * 容器
     * 托管的资源
-* 配置
+* 配置管理
     * 容器
     * 托管的资源
     * 外部化配置
@@ -70,7 +70,7 @@
 
 BeanFactory提供了先进的配置机制，能管理所有类型的对象
 
-ApplicationContext除了提供IOC能力，还提供了更多企业特性
+ApplicationContext除了提供IOC能力，还提供了更多特性，如AOO、Environment、i18n、Event、Resource
 
 BeanFactory不对配置格式或注解做限制，而是通过BeanDefinitionReader或BeanPostProcessor进行扩展
 
@@ -79,8 +79,6 @@ ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory�
 BeanFactory Bean是延迟加载，ApplicationContext会将单例Bean提前初始化
 
 BeanPostProcessor和BeanFactoryPostProcessor，BeanFactory需要手动注册，ApplicationContext则是自动注册
-
-getBean线程安全，在操作中会加互斥锁
 
 ### 模块
 

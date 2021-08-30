@@ -1,32 +1,98 @@
-`SpringBoot` 提交效率 快速开发
+将Spring和第三方库进行整合，创建可运行的、独立的、生产级的基于Spring的应用程序
 
-`SpringBoot`对`Spring`平台和第三方库进行整合，创建可运行的、独立的、生产级的基于`Spring`的应用程序
+为快速启动且最小配置的Spring应用设计
 
-### 原始`Spring`
+### 特性
 
-1. jar包管理
-2. 各种配置
-3. bean管理 (注解/xml  JavaConfig)
-4. 配置属性文件的读取
+1. 创建独立的Spring应用
+2. 内嵌Tomcat、Jetty、Undertow等Web容器，不需要部署War文件
+3. 提供Starter依赖管理
+4. 条件满足时自动装配Spring或第三方类库
+5. 提供Production-ready特性，如指标信息Metrics、健康检查及外部化配置
+6. 绝无代码生成，不需要XML配置
 
-### SpringBoot
+3、6主要通过Maven和Spring Framework的方式实现，因此SpringBoot的主要特性可总结为以下五点：
 
-1. 依赖管理更加简单   ---starter管理
-2. 没看到定义bean
-3. bean扫描路径没配置
-4. 没有定义属性文件的读取
+1. SpringApplication
+2. 内嵌Web容器
+3. 自动装配
+4. 外部化配置
+5. Actuator
 
-### 设计目标
 
-1. 为所有Spring开发提供更快且更通用的入门体验
-2. 开箱即用，可以根据需求快速调整默认值
-3. 提供大型项目通用的一系列非功能性功能
-4. 绝对没有代码生成，也不需要XML配置
 
-### 核心概念
+### 独立的Spring应用
 
-1. 约定优先配置
-2. 配置自动装载
+spring-boot-maven-plugin，可执行jar
+
+* BOOT-INF
+    * classes：项目的类文件和资源文件
+    * lib：第三方jar包
+* META-INF：应用相关的原信息，如MANIFEST.MF
+* org.springframework.boot.loader：启动类，加载BOOT-INF
+    * ExecutableArchiveLauncher
+    * JarLauncher：可执行Jar
+    * WarLanucher：可执行War
+
+通过URLStreamHandler自定义实现Jar Handler
+
+maven-war-plugin 3.x之后不必须web.xml
+
+### Starter
+
+spring-boot-starter-parent ----> parent is ---->   spring-boot-dependencies
+
+包含许多使项目快速启动和运行所需的依赖项
+
+命名规范
+
+* 官方：spring-boot-starter-*  
+* 第三方:*-spring-boot-starter
+
+包里没有代码  只管理依赖
+
+功能启用和依赖管理
+
+### 嵌入式Web容器
+
+Servlet
+
+* Tomcat
+* Jetty
+* Undertow
+
+Reactive
+
+* Netty Web Server：通过Reactor+Netty
+* Servlet3.1+异步
+
+spring-boot-starter-web和spring-boot-starter-webflux同时存在时，webflux会被忽略
+
+
+
+### 自动装配
+
+基于类路径Jar包自动装配
+
+@EnableAutoConfiguration
+
+@SpringBootApplication
+
+META-INF/spring.factories
+
+> org.springframework.boot.autoconfig.EnableAutoConfiguration=\
+>
+> org.springframework.boot.autoconfig.aop.AopAutoConfiguration
+
+
+
+### Production-Ready
+
+外部化配置
+
+Actuator
+
+
 
 ### 通用约定
 
@@ -40,13 +106,5 @@
 
 4. web开发中页面模板，约定放在classpath目录的templates目录下
 
-### Starter
 
-包含许多依赖项，是使项目快速启动和运行所需的依赖项。
-
-命名规范：官方：spring-boot-starter-*   第三方:*-spring-boot-starter
-
-包里没有代码  只管理依赖
-
-功能启用和依赖管理
 

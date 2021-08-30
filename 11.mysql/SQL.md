@@ -12,7 +12,7 @@ NoSQL泛指非关系型数据库，如键值型Redis、文档型MongoDB、搜索
 
 列数据库：降低系统IO，适合分布式文件系统，但功能相对有限
 
-ER Diagram：实体关系图，包含实体、属性、关系
+ER Diagram：实体关系图，包含实体、属性、关系，一对一、一对多、多对多
 
 ### SQL
 
@@ -32,9 +32,9 @@ SQL按照功能划分为四个部分
 
 ### DDL
 
-不需要COMMIT
+不需要COMMIT，CREATE  DROP  ALTER
 
-CREATE  DROP  ALTER
+CREATE DATABASE play [ IF NOT EXISTS ] play DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_general_ci
 
 ALTER TABLE player ADD （age int）
 
@@ -47,13 +47,15 @@ ALTER TABLE player RENAME COLUMN age to play_age
 表设计原则：简单可复用，简单指的是用更少的表、更少的字段、更少的联合主键字段来完成数据表的设计。可复用则是通过主键、外键的使用来增强数据表之间的复用率
 
 - 键约束
-    - 主键约束：NOT NULL + UNIQUE，一张表主键只能有一个，可以是一个字段，也可以是复合字段
+    - 主键约束：NOT NULL + UNIQUE，一张表主键只能有一个，可以是一个字段，也可以是复合字段，会创建主键索引
     - 外键约束：确定表与表之间引用的完整性，一张表中的外键对应另一张表的逐渐，外键可以重复，可以为空
 - 字段约束
-    - UNIQUE约束：同时会创建普通索引（NORMAL INDEX）
+    - UNIQUE约束：同时会创建唯一索引（UNIQUE INDEX）
     - NOT NULL约束
     - DEFAULT约束 
     - CHECK约束：CHECK（age >= 18 and age <= 70）
+
+主键、外键、索引关系
 
 ### DQL
 
@@ -116,7 +118,7 @@ AS取别名
 
 转换函数
 
-聚集函数：COUNT MAX MIN AVG SUM，MAX、MIN、AVG会忽略NULL
+聚集函数：COUNT MAX MIN AVG SUM，MAX、MIN、AVG会忽略NULL，COUNT(*)只会统计行数，COUNT(字段)会过滤NULL
 
 函数会导致不走索引，不要在WHERE中使用函数
 
@@ -128,7 +130,7 @@ and、or、not、between and、like、is null、in、算术比较
 
 like以%开头，即使有索引也会进行全表扫描，不以%开头且有索引，不会进行全表扫描
 
-count(*) = count(1) > count(字段)   count(字段) 会忽略null
+count(*) = count(1) > count(字段) 
 
 #### GROUP BY 和 HAVING
 
