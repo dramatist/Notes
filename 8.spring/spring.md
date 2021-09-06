@@ -66,6 +66,19 @@
     * 托管的资源
     * 外部化配置
 
+### WebMVC
+
+基于Servlet API
+
+* 简化Web开发
+* 约定大于配置的契约编程
+* 易于测试
+* 和IOC、AOP集成
+* 灵活的数据校验、格式化、数据绑定
+* 本地化、主题
+* 支持静态资源
+* 支持RESTful
+
 ### BeanFactory和ApplicationContext
 
 BeanFactory提供了先进的配置机制，能管理所有类型的对象
