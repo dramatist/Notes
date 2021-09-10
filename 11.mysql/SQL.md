@@ -166,8 +166,6 @@ SELECT * FROM a WHERE EXISTS (SELECT x FROM b WHERE a.x = b.x)
 
 ##### 内连接
 
-等值连接 / 自然连接
-
 等值连接：将两张表先笛卡尔积，再进行等值比较
 
 自然连接：将两个表中名称相同的字段进行等值比较
@@ -216,7 +214,7 @@ SQL99    SELECT * FROM a CROSS JOIN b
 
 <img src="../.image/image-20201203195844916.png" alt="image-20201203195844916" style="zoom:25%;" />
 
-视图：虚拟表，相当于一张表或多张表的结果集
+视图：虚拟表，对select语句进行了封装，相当于一张表或多张表的结果集
 
 CREATE VIEW  viewname AS SELECT ...
 

@@ -1,89 +1,78 @@
 ![Spring 核心特性](../.image/Spring 核心特性.png)
 
-![Spring 核心价值](../.image/Spring 核心价值.png)
-
 ### 核心特性
 
-1. IOC
-2. AOP
+spring-core、spring-beans、spring-context、spring-context-indexer
+
+1. IoC：
 3. i18n
 4. Events
 5. Resources
 6. Validation
 7. Data Binding
 8. Type Conversion
-9. Spring EL
-
-### 数据存储
-
-1. JDBC
-2. 事务抽象
-3. DAO支持
-4. O/R Mapping
-5. XML Marshalling
-
-### Web
-
-* Servlet
-    * MVC
-    * WebSocket
-    * SockJS
-* Reactive
-    * WebFlux
-    * WebClient
-    * WebSocket
-
-### 技术整合
-
-1. 远程调用
-2. JMS
-3. JMX
-4. JCA
-5. 本地任务Tasks
-6. 本地调度Scheduling
-7. 缓存抽象Caching
-8. 测试
-9. Java邮件客户端Email
+9. Spring EL：spring-expression 
+9. AOP：spring-aop，spring-aspects
 
 ### 测试
+
+spring-test
 
 * Mock Objects
 * TextContext Framework
 * SpringMVC Test
 * WebTestClient
 
-### IOC容器职责
+### 数据存储
 
-* 依赖处理
-    * 依赖查找
-    * 依赖注入
+1. JDBC：spring-jdbc、spring-r2dbc
+2. 事务抽象：spring-tx
+3. DAO支持
+4. O/R Mapping：spring-orm
+5. XML Marshalling：spring-oxm
 
-* 生命周期管理
-    * 容器
-    * 托管的资源
-* 配置管理
-    * 容器
-    * 托管的资源
-    * 外部化配置
+### Web
 
-### WebMVC
+* spring-web
+* Servlet
+    * MVC：spring-webmvc
+    * WebSocket：spring-websocket
+    * SockJS
+* Reactive
+    * WebFlux：spring-webflux
+    * WebSocket：spring-websocket
+    * WebClient
 
-基于Servlet API
+### 技术整合
 
-* 简化Web开发
-* 约定大于配置的契约编程
-* 易于测试
-* 和IOC、AOP集成
-* 灵活的数据校验、格式化、数据绑定
-* 本地化、主题
-* 支持静态资源
-* 支持RESTful
+1. 缓存抽象Caching、Java邮件客户端Email、本地调度Scheduling：spring-context-support
+
+1. 远程调用Remoting
+2. 本地任务Tasks
+3. JMX
+4. JCA
+5. JMS：spring-jms
+6. Logging：spring-jcl
+7. javaagent：spring-instrument
+8. 自定义消息处理：spring-message
+
+### 简化Java开发
+
+* 基于 POJO 的轻量级和最小侵入性编程
+
+* 通过依赖注入和面向接口实现松耦合
+
+* 基于切面和惯例进行声明式编程
+
+* 通过切面和模板减少样板式代码
 
 ### BeanFactory和ApplicationContext
 
 BeanFactory提供了先进的配置机制，能管理所有类型的对象
 
 ApplicationContext除了提供IOC能力，还提供了更多特性，如AOO、Environment、i18n、Event、Resource
+
+ApplicationContext注解驱动、事件驱动、模块驱动
 
 BeanFactory不对配置格式或注解做限制，而是通过BeanDefinitionReader或BeanPostProcessor进行扩展
 
@@ -92,57 +81,6 @@ ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory�
 BeanFactory Bean是延迟加载，ApplicationContext会将单例Bean提前初始化
 
 BeanPostProcessor和BeanFactoryPostProcessor，BeanFactory需要手动注册，ApplicationContext则是自动注册
-
-### 模块
-
-ioc
-
-* spring-core 资源管理、泛型处理等
-* spring-beans 依赖查找、依赖注入相关
-* spring-context 应用上下午相关，注解驱动、事件驱动、模块驱动等
-* spring-expression  Spring表达式相关
-* spring-context-support 提供Cache、Mail、Schedule等支持
-* spring-context-indexer
-
-aop
-
-* spring-aop  Spring AOP处理
-* spring-aspects  与AspectJ整合
-
-web
-
-* spring-web
-* spring-webmvc
-* spring-webflux
-* spring-websocket
-
-data access
-
-* spring-tx
-* spring-jdbc
-* spring-r2dbc
-* spring-orm
-
-message
-
-* spring-jms
-* spring-messaging
-
-logging
-
-* spring-jcl
-
-test
-
-* spring-test
-
-javaagent
-
-* spring-instrument
-
-xml marshal
-
-* spring-oxm
 
 
 
