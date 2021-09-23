@@ -1,17 +1,5 @@
 ### Java
 
-2004  Java5：enum、generic、annotation、auto-boxing
-
-2008  Java6：@Override
-
-2011  Java7：try-with-resources、Diamond
-
-2014  Java8：Lambda、Stream、@Repeatable、default方法
-
-2017  Java9：Module、接口私有方法、FlowAPI、G1
-
-2018  Java10：var
-
 JCP   Java社区
 
 JSR   Java规范请求  specification 

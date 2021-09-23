@@ -1,4 +1,10 @@
-![Spring 核心特性](../.image/Spring 核心特性.png)
+### 编程模型
+
+* 面向对象编程--->契约接口
+* 面向切面编程：动态代理，字节码提升
+* 面向函数编程：Lambda，Reactive
+* 面向模块编程：Maven，Java 9 Automatic Module， @Enable*
+* 面向元编程：配置元信息，注解，外部化配置
 
 ### 核心特性
 
@@ -33,7 +39,8 @@ spring-test
 
 ### Web
 
-* spring-web
+spring-web
+
 * Servlet
     * MVC：spring-webmvc
     * WebSocket：spring-websocket
@@ -65,22 +72,6 @@ spring-test
 * 基于切面和惯例进行声明式编程
 
 * 通过切面和模板减少样板式代码
-
-### BeanFactory和ApplicationContext
-
-BeanFactory提供了先进的配置机制，能管理所有类型的对象
-
-ApplicationContext除了提供IOC能力，还提供了更多特性，如AOO、Environment、i18n、Event、Resource
-
-ApplicationContext注解驱动、事件驱动、模块驱动
-
-BeanFactory不对配置格式或注解做限制，而是通过BeanDefinitionReader或BeanPostProcessor进行扩展
-
-ApplicationContext既继承了BeanFactory，内部又组合了一个BeanFactory实例
-
-BeanFactory Bean是延迟加载，ApplicationContext会将单例Bean提前初始化
-
-BeanPostProcessor和BeanFactoryPostProcessor，BeanFactory需要手动注册，ApplicationContext则是自动注册
 
 
 
